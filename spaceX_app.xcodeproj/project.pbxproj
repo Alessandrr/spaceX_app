@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		1F93F35C2A41CE1600C330BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F35B2A41CE1600C330BD /* AppDelegate.swift */; };
 		1F93F35E2A41CE1600C330BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F35D2A41CE1600C330BD /* SceneDelegate.swift */; };
-		1F93F3602A41CE1600C330BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F35F2A41CE1600C330BD /* ViewController.swift */; };
+		1F93F3602A41CE1600C330BD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F35F2A41CE1600C330BD /* MainViewController.swift */; };
 		1F93F3632A41CE1600C330BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F93F3612A41CE1600C330BD /* Main.storyboard */; };
 		1F93F3652A41CE1900C330BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F93F3642A41CE1900C330BD /* Assets.xcassets */; };
 		1F93F3682A41CE1900C330BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F93F3662A41CE1900C330BD /* LaunchScreen.storyboard */; };
+		1F93F3732A41CE4D00C330BD /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F3722A41CE4D00C330BD /* Rocket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F93F3582A41CE1600C330BD /* spaceX_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spaceX_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F93F35B2A41CE1600C330BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F93F35D2A41CE1600C330BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1F93F35F2A41CE1600C330BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F93F35F2A41CE1600C330BD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1F93F3622A41CE1600C330BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F93F3642A41CE1900C330BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F93F3672A41CE1900C330BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F93F3692A41CE1900C330BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F93F3722A41CE4D00C330BD /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,48 @@
 		1F93F35A2A41CE1600C330BD /* spaceX_app */ = {
 			isa = PBXGroup;
 			children = (
-				1F93F35B2A41CE1600C330BD /* AppDelegate.swift */,
-				1F93F35D2A41CE1600C330BD /* SceneDelegate.swift */,
-				1F93F35F2A41CE1600C330BD /* ViewController.swift */,
-				1F93F3612A41CE1600C330BD /* Main.storyboard */,
+				1F93F3742A41CE5F00C330BD /* Models */,
+				1F93F36F2A41CE2500C330BD /* Config */,
+				1F93F3702A41CE3600C330BD /* View Controllers */,
+				1F93F3712A41CE4000C330BD /* Storyboards */,
 				1F93F3642A41CE1900C330BD /* Assets.xcassets */,
-				1F93F3662A41CE1900C330BD /* LaunchScreen.storyboard */,
-				1F93F3692A41CE1900C330BD /* Info.plist */,
 			);
 			path = spaceX_app;
+			sourceTree = "<group>";
+		};
+		1F93F36F2A41CE2500C330BD /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				1F93F35B2A41CE1600C330BD /* AppDelegate.swift */,
+				1F93F35D2A41CE1600C330BD /* SceneDelegate.swift */,
+				1F93F3692A41CE1900C330BD /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		1F93F3702A41CE3600C330BD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F93F35F2A41CE1600C330BD /* MainViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1F93F3712A41CE4000C330BD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1F93F3612A41CE1600C330BD /* Main.storyboard */,
+				1F93F3662A41CE1900C330BD /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		1F93F3742A41CE5F00C330BD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F93F3722A41CE4D00C330BD /* Rocket.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F93F3602A41CE1600C330BD /* ViewController.swift in Sources */,
+				1F93F3602A41CE1600C330BD /* MainViewController.swift in Sources */,
 				1F93F35C2A41CE1600C330BD /* AppDelegate.swift in Sources */,
 				1F93F35E2A41CE1600C330BD /* SceneDelegate.swift in Sources */,
+				1F93F3732A41CE4D00C330BD /* Rocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +325,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HUJ988ZQ9U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = spaceX_app/Info.plist;
+				INFOPLIST_FILE = spaceX_app/Config/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +353,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HUJ988ZQ9U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = spaceX_app/Info.plist;
+				INFOPLIST_FILE = spaceX_app/Config/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
