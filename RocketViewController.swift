@@ -52,6 +52,7 @@ class RocketViewController: UIViewController {
             case .failure(let error):
                 print(error.localizedDescription)
                 self?.activityIndicator.stopAnimating()
+                self?.rocketImageView.contentMode = .center
                 self?.rocketImageView.image = UIImage(systemName: "exclamationmark")
             }
         }

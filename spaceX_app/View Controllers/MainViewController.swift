@@ -34,10 +34,10 @@ final class MainViewController: UITableViewController {
     //MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let rocketsVC = segue.destination as? RocketViewController else { return }
+        guard let rocketVC = segue.destination as? RocketViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         
-        rocketsVC.rocket = rockets[indexPath.row]
+        rocketVC.rocket = rockets[indexPath.row]
     }
     
 }
