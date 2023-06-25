@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F716FEA2A488A8100362DB5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F716FE92A488A8100362DB5 /* NetworkManager.swift */; };
+		1F716FEF2A4897C900362DB5 /* RocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F716FEE2A4897C900362DB5 /* RocketViewController.swift */; };
+		1F716FF12A48ADE000362DB5 /* MeasurementUnitSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F716FF02A48ADE000362DB5 /* MeasurementUnitSystem.swift */; };
 		1F93F35C2A41CE1600C330BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F35B2A41CE1600C330BD /* AppDelegate.swift */; };
 		1F93F35E2A41CE1600C330BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F35D2A41CE1600C330BD /* SceneDelegate.swift */; };
 		1F93F3602A41CE1600C330BD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F35F2A41CE1600C330BD /* MainViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F716FE92A488A8100362DB5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1F716FEE2A4897C900362DB5 /* RocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RocketViewController.swift; path = ../../RocketViewController.swift; sourceTree = "<group>"; };
+		1F716FF02A48ADE000362DB5 /* MeasurementUnitSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementUnitSystem.swift; sourceTree = "<group>"; };
 		1F93F3582A41CE1600C330BD /* spaceX_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spaceX_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F93F35B2A41CE1600C330BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F93F35D2A41CE1600C330BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F716FEB2A488A8700362DB5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1F716FE92A488A8100362DB5 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		1F93F34F2A41CE1600C330BD = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +72,7 @@
 		1F93F35A2A41CE1600C330BD /* spaceX_app */ = {
 			isa = PBXGroup;
 			children = (
+				1F716FEB2A488A8700362DB5 /* Services */,
 				1F93F3742A41CE5F00C330BD /* Models */,
 				1F93F36F2A41CE2500C330BD /* Config */,
 				1F93F3702A41CE3600C330BD /* View Controllers */,
@@ -80,6 +95,7 @@
 		1F93F3702A41CE3600C330BD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1F716FEE2A4897C900362DB5 /* RocketViewController.swift */,
 				1F93F35F2A41CE1600C330BD /* MainViewController.swift */,
 			);
 			path = "View Controllers";
@@ -98,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				1F93F3722A41CE4D00C330BD /* Rocket.swift */,
+				1F716FF02A48ADE000362DB5 /* MeasurementUnitSystem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,6 +192,9 @@
 			files = (
 				1F93F3602A41CE1600C330BD /* MainViewController.swift in Sources */,
 				1F93F35C2A41CE1600C330BD /* AppDelegate.swift in Sources */,
+				1F716FF12A48ADE000362DB5 /* MeasurementUnitSystem.swift in Sources */,
+				1F716FEF2A4897C900362DB5 /* RocketViewController.swift in Sources */,
+				1F716FEA2A488A8100362DB5 /* NetworkManager.swift in Sources */,
 				1F93F35E2A41CE1600C330BD /* SceneDelegate.swift in Sources */,
 				1F93F3732A41CE4D00C330BD /* Rocket.swift in Sources */,
 			);

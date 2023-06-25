@@ -11,14 +11,15 @@ struct Rocket: Decodable {
     let active: Bool
     let stages: Int
     let boosters: Int
-    let cost_per_launch: Int
-    let success_rate_pct: Int
-    let first_flight: String
+    let costPerLaunch: Int
+    let successRatePct: Int
+    let firstFlight: String
     let country: String
     let company: String
     let wikipedia: String
     let description: String
     let id: String
+    let flickrImages: [String]
     
     let height: Height
     let diameter: Diameter
