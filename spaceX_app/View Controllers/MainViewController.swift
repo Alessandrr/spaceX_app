@@ -10,10 +10,12 @@ import UIKit
 final class MainViewController: UITableViewController {
     
     var rockets: [Rocket] = []
-
+    var activityIndicatorView = UIActivityIndicatorView(style: .medium)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRockets()
+        setupActivityIndicator()
     }
     
     //MARK: Table view controller data source
@@ -48,10 +50,17 @@ private extension MainViewController {
             switch result {
             case .success(let rockets):
                 self?.rockets = rockets
+                self?.activityIndicatorView.stopAnimating()
                 self?.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    func setupActivityIndicator() {
+        tableView.backgroundView = activityIndicatorView
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.startAnimating()
     }
 }
