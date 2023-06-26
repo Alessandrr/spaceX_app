@@ -24,7 +24,6 @@ struct Rocket: Decodable {
     let height: Height
     let diameter: Diameter
     let mass: Mass
-    
 }
 
 struct Height: Decodable {

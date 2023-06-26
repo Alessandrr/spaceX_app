@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MU5-Ym-aog">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -55,7 +56,7 @@
                                 <rect key="frame" x="186.66666666666666" y="304.66666666666669" width="20" height="20"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2G1-Q5-27m">
-                                <rect key="frame" x="16" y="536.33333333333337" width="361" height="132"/>
+                                <rect key="frame" x="16" y="536.33333333333337" width="361" height="170"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="36y-Uz-gsQ">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="18"/>
@@ -92,6 +93,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First launch:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCT-M3-XJk">
+                                        <rect key="frame" x="0.0" y="152" width="361" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XJj-dd-8Ue">
@@ -101,7 +108,7 @@
                                     <segment title="Imperial"/>
                                 </segments>
                                 <connections>
-                                    <action selector="unitSystemSelected:" destination="UxZ-VK-oEs" eventType="valueChanged" id="2gr-L8-tm6"/>
+                                    <action selector="unitSystemSelected:" destination="UxZ-VK-oEs" eventType="valueChanged" id="JI0-Jc-1zu"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -122,11 +129,18 @@
                             <constraint firstItem="LP0-h6-Dlh" firstAttribute="centerY" secondItem="deq-HR-zc0" secondAttribute="centerY" id="zl9-Vk-6A3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Hb7-QM-1NX"/>
+                    <navigationItem key="navigationItem" id="Hb7-QM-1NX">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle" catalog="system" id="7LI-DE-2GN">
+                            <connections>
+                                <action selector="infoButtonPressed" destination="UxZ-VK-oEs" id="wBh-vq-XjZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="LP0-h6-Dlh" id="Z0a-is-ZMn"/>
                         <outlet property="costLabel" destination="zlh-QV-a7N" id="iqB-Dt-xxe"/>
                         <outlet property="diameterLabel" destination="aaG-o8-fGp" id="2n7-X5-LLt"/>
+                        <outlet property="firstLaunchLabel" destination="XCT-M3-XJk" id="lcm-Vj-6hx"/>
                         <outlet property="heightLabel" destination="jiL-nx-NVU" id="Byg-Kw-kLZ"/>
                         <outlet property="massLabel" destination="Ojz-3V-gll" id="vaR-5r-Z9B"/>
                         <outlet property="rocketImageView" destination="deq-HR-zc0" id="WEm-2Y-dKu"/>
@@ -155,6 +169,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

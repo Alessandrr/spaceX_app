@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum MassUnit: String {
+enum MassUnit {
     case kg
     case lbs
 }
 
-enum DistanceUnit: String {
+enum DistanceUnit {
     case meters
     case feet
 }

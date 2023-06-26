@@ -11,6 +11,7 @@ class RocketViewController: UIViewController {
     
     var rocket: Rocket!
 
+    //MARK: - IBOutlets
     @IBOutlet var rocketImageView: UIImageView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
@@ -19,7 +20,9 @@ class RocketViewController: UIViewController {
     @IBOutlet var massLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
     @IBOutlet var successRateLabel: UILabel!
+    @IBOutlet var firstLaunchLabel: UILabel!
     
+    //MARK: - VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
@@ -29,6 +32,14 @@ class RocketViewController: UIViewController {
         setupMeasurementsInfo()
     }
     
+    //MARK: - IBActions
+    @IBAction func infoButtonPressed() {
+        guard let wikiUrl = URL(string: rocket.wikipedia) else { return }
+        
+        if UIApplication.shared.canOpenURL(wikiUrl) {
+            UIApplication.shared.open(wikiUrl)
+        }
+    }
     
     @IBAction func unitSystemSelected(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -43,11 +54,13 @@ class RocketViewController: UIViewController {
         setupMeasurementsInfo()
     }
     
+    //MARK: - Private functions
     private func setupRocketImage() {
         NetworkManager.shared.fetchRocketImage(from: rocket.flickrImages) { [weak self] result in
             switch result {
             case .success(let rocketImage):
                 self?.activityIndicator.stopAnimating()
+                self?.rocketImageView.contentMode = .scaleAspectFill
                 self?.rocketImageView.image = UIImage(data: rocketImage)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -63,6 +76,7 @@ class RocketViewController: UIViewController {
         
         costLabel.text = "Cost per launch: \(rocket.costPerLaunch) USD"
         successRateLabel.text = "Launch success rate: \(rocket.successRatePct)%"
+        firstLaunchLabel.text = "First flight: \(rocket.firstFlight)"
     }
     
     private func setupMeasurementsInfo() {
