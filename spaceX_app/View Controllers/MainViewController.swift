@@ -14,8 +14,8 @@ final class MainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchRockets()
         setupActivityIndicator()
+        fetchRockets()
     }
     
     //MARK: Table view controller data source
@@ -41,6 +41,13 @@ final class MainViewController: UITableViewController {
         rocketVC.rocket = rockets[indexPath.row]
     }
     
+    //MARK: - Private functions
+    func setupActivityIndicator() {
+        tableView.backgroundView = activityIndicatorView
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.startAnimating()
+    }
+    
 }
 
 // MARK: - Networking
@@ -56,11 +63,5 @@ private extension MainViewController {
                 print(error)
             }
         }
-    }
-    
-    func setupActivityIndicator() {
-        tableView.backgroundView = activityIndicatorView
-        activityIndicatorView.hidesWhenStopped = true
-        activityIndicatorView.startAnimating()
     }
 }
