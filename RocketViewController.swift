@@ -59,15 +59,15 @@ class RocketViewController: UIViewController {
         NetworkManager.shared.fetchRocketImage(from: rocket.flickrImages) { [weak self] result in
             switch result {
             case .success(let rocketImage):
-                self?.activityIndicator.stopAnimating()
                 self?.rocketImageView.contentMode = .scaleAspectFill
                 self?.rocketImageView.image = UIImage(data: rocketImage)
             case .failure(let error):
                 print(error.localizedDescription)
-                self?.activityIndicator.stopAnimating()
                 self?.rocketImageView.contentMode = .center
                 self?.rocketImageView.image = UIImage(systemName: "exclamationmark")
             }
+            
+            self?.activityIndicator.stopAnimating()
         }
     }
     
