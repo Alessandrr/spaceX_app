@@ -9,8 +9,8 @@ import UIKit
 
 final class MainViewController: UITableViewController {
     
-    var rockets: [Rocket] = []
-    var activityIndicatorView = UIActivityIndicatorView(style: .medium)
+    private var rockets: [Rocket] = []
+    private var activityIndicatorView = UIActivityIndicatorView(style: .medium)
     
     override func viewDidLoad() {
         super.viewDidLoad()
