@@ -30,7 +30,6 @@ class RocketViewController: UIViewController {
         setupRocketImage()
         setupRocketInfo()
         setupMeasurementsInfo()
-        print(rocket)
     }
     
     //MARK: - IBActions

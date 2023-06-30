@@ -20,7 +20,6 @@ class NetworkManager {
     private init() {}
     
     func fetchRockets(completion: @escaping (Result<[Rocket], NetworkError>) -> Void) {
-        
         AF.request("https://api.spacexdata.com/v4/rockets")
             .validate()
             .responseJSON { dataResponse in
@@ -34,21 +33,15 @@ class NetworkManager {
     }
     
     func fetchRocketImage(from images: [String], completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        guard let url = URL(string: images.randomElement() ?? "") else {
-            completion(.failure(.invalidUrl))
-            return
-        }
-        
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: url) else {
-                DispatchQueue.main.async {
-                    completion(.failure(.noData))
+        AF.request(images.randomElement() ?? "")
+            .validate()
+            .responseData { dataResponse in
+                switch dataResponse.result {
+                case .success(let imageData):
+                    completion(.success(imageData))
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-                return
             }
-            DispatchQueue.main.async {
-                completion(.success(imageData))
-            }
-        }
     }
 }
