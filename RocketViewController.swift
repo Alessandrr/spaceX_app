@@ -30,6 +30,7 @@ class RocketViewController: UIViewController {
         setupRocketImage()
         setupRocketInfo()
         setupMeasurementsInfo()
+        print(rocket)
     }
     
     //MARK: - IBActions
@@ -86,7 +87,7 @@ class RocketViewController: UIViewController {
         case .lbs:
             massLabel.text = "Mass: \(rocket.mass.lb) lbs"
         }
-        
+
         switch MeasurementUnitSystem.shared.distanceUnit {
         case .meters:
             heightLabel.text = "Height \(rocket.height.meters) m"

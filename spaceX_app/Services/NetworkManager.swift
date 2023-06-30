@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum NetworkError: Error {
     case invalidUrl
@@ -19,32 +20,17 @@ class NetworkManager {
     private init() {}
     
     func fetchRockets(completion: @escaping (Result<[Rocket], NetworkError>) -> Void) {
-        guard let url = URL(string: "https://api.spacexdata.com/v4/rockets") else {
-            completion(.failure(.invalidUrl))
-            return
-        }
         
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                completion(.failure(.invalidUrl))
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            do {
-                let rockets = try decoder.decode([Rocket].self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(rockets))
+        AF.request("https://api.spacexdata.com/v4/rockets")
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    completion(.success(Rocket.getRockets(from: value)))
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-            } catch let error {
-                print(error)
-                completion(.failure(.decoderError))
             }
-            
-        }.resume()
     }
     
     func fetchRocketImage(from images: [String], completion: @escaping (Result<Data, NetworkError>) -> Void) {
