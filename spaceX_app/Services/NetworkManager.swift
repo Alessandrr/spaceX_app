@@ -19,6 +19,22 @@ class NetworkManager {
     
     private init() {}
     
+    func fetchRocketsDecodable(completion: @escaping (Result<[Rocket], AFError>) -> Void) {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        AF.request("https://api.spacexdata.com/v4/rockets")
+            .validate()
+            .responseDecodable(of: [Rocket].self, decoder: decoder) { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    completion(.success(value))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+    
     func fetchRockets(completion: @escaping (Result<[Rocket], NetworkError>) -> Void) {
         AF.request("https://api.spacexdata.com/v4/rockets")
             .validate()

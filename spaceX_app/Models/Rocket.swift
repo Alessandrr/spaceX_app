@@ -5,7 +5,7 @@
 //  Created by Aleksandr Mamlygo on 20.06.23.
 //
 
-struct Rocket {
+struct Rocket: Decodable {
     let name: String
     let type: String
     let active: Bool
@@ -52,7 +52,7 @@ struct Rocket {
     }
 }
 
-struct Distance {
+struct Distance: Decodable {
     let meters: Double
     let feet: Double
     
@@ -62,7 +62,7 @@ struct Distance {
     }
 }
 
-struct Mass {
+struct Mass: Decodable {
     let kg: Int
     let lb: Int
     

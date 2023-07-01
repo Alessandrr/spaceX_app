@@ -53,7 +53,7 @@ final class MainViewController: UITableViewController {
 // MARK: - Networking
 private extension MainViewController {
     func fetchRockets() {
-        NetworkManager.shared.fetchRockets { [weak self] result in
+        NetworkManager.shared.fetchRocketsDecodable { [weak self] result in
             switch result {
             case .success(let rockets):
                 self?.rockets = rockets
