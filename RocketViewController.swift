@@ -21,6 +21,7 @@ class RocketViewController: UIViewController {
     @IBOutlet var costLabel: UILabel!
     @IBOutlet var successRateLabel: UILabel!
     @IBOutlet var firstLaunchLabel: UILabel!
+    @IBOutlet var measurementsControl: UISegmentedControl!
     
     //MARK: - VC Life Cycle
     override func viewDidLoad() {
@@ -44,11 +45,9 @@ class RocketViewController: UIViewController {
     @IBAction func unitSystemSelected(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            MeasurementUnitSystem.shared.distanceUnit = .meters
-            MeasurementUnitSystem.shared.massUnit = .kg
+            SettingsManager.shared.changeSettings(massUnit: .kg, distanceUnit: .meters)
         default:
-            MeasurementUnitSystem.shared.distanceUnit = .feet
-            MeasurementUnitSystem.shared.massUnit = .lbs
+            SettingsManager.shared.changeSettings(massUnit: .lbs, distanceUnit: .feet)
         }
         
         setupMeasurementsInfo()
@@ -80,14 +79,20 @@ class RocketViewController: UIViewController {
     }
     
     private func setupMeasurementsInfo() {
-        switch MeasurementUnitSystem.shared.massUnit {
+        let currentSettings = SettingsManager.shared.fetchSettings()
+        
+        if currentSettings.massUnit == .lbs {
+            measurementsControl.selectedSegmentIndex = 1
+        }
+        
+        switch currentSettings.massUnit {
         case .kg:
             massLabel.text = "Mass: \(rocket.mass.kg) kg"
         case .lbs:
             massLabel.text = "Mass: \(rocket.mass.lb) lbs"
         }
 
-        switch MeasurementUnitSystem.shared.distanceUnit {
+        switch currentSettings.distanceUnit {
         case .meters:
             heightLabel.text = "Height \(rocket.height.meters) m"
             diameterLabel.text = "Diameter: \(rocket.diameter.meters) m"

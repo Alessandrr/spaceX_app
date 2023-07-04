@@ -7,24 +7,17 @@
 
 import Foundation
 
-enum MassUnit {
+enum MassUnit: Codable {
     case kg
     case lbs
 }
 
-enum DistanceUnit {
+enum DistanceUnit: Codable {
     case meters
     case feet
 }
 
-class MeasurementUnitSystem {
-    static let shared = MeasurementUnitSystem()
-    
+struct MeasurementUnitSystem: Codable {
     var massUnit: MassUnit
     var distanceUnit: DistanceUnit
-    
-    private init() {
-        massUnit = .kg
-        distanceUnit = .meters
-    }
 }
